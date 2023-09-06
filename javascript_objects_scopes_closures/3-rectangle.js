@@ -10,7 +10,7 @@ class Rectangle {
     /* Print the Rectangle using the character x */
     print () {
         for (let Joseph = 0; Joseph < this.height; Joseph++) {
-            console.log('x'.repeat(this.width));
+            console.log('X'.repeat(this.width));
         }
     }
 }
