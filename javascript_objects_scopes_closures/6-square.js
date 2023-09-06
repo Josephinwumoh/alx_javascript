@@ -1,9 +1,9 @@
 #!/usr/bin/node
 
-const supSquare = require('./5-square');
+const superSquare = require('./5-square');
 
 /* A class Square that inherits from Rectangle */
-class Square extends supSquare {
+class Square extends superSquare {
     charPrint (c) {
         if (c == null) {
             c = 'X';
