@@ -29,8 +29,6 @@ request(url, (error, response, body) => {
         if (writeError) {
             console.error(`Error writing to file: ${writeError.message}`);
             process.exit(1);
-        }
-
-        console.log(`File '${filePath}' has been successfully created and saved.`);       
+        }       
     });
 });
