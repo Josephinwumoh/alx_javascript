@@ -24,6 +24,6 @@ request(url, (error, response, body) => {
             process.exit(1);
         }
 
-        console.log(`File '${filePath}' has been successfully created and saved.`);       
+        console.log(`File ${filePath}`);       
     });
 });
