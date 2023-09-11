@@ -8,7 +8,7 @@ const url = process.argv[2];
 const filePath = process.argv[3];
 
 if (!url || !filePath) {
-    console.error('Usage: node 3-request_store.js <http://loripsum.net/api loripsum> <3-request_store.js>');
+    console.error('Usage: node 3-request_store.js <http://loripsum.net/api loripsum> <cat loripsum>');
     process.exit(1);
 }
 
