@@ -1,5 +1,3 @@
-#!/usr/bin/node
-
 // Defining a variable name globalVariable
 let globalVariable = 'Welcome';
 

@@ -1,5 +1,3 @@
-#!/usr/bin/node
-
 const studentHogwarts = () => {
     let privateScore = 0;
     let name = null;
@@ -37,10 +35,10 @@ const studentHogwarts = () => {
 // Creating a variable named harry an instance of studentHogwarts
 const harry = studentHogwarts();
 harry.setName('Harry');
-harry,rewardStudent();
-harry,rewardStudent();
-harry,rewardStudent();
-harry,rewardStudent();
+harry.rewardStudent();
+harry.rewardStudent();
+harry.rewardStudent();
+harry.rewardStudent();
 
 // Creating a variable named draco, an instance of studentHogwarts
 const draco = studentHogwarts();
