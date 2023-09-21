@@ -1,0 +1,1 @@
+Cookies_local_srorage containing index.js file.
