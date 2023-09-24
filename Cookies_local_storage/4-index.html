@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login to the Website</title>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookies@3.0.1/dist/js.cookie.min.js"></script>
 </head>
 <body>
     <h1>Login to the website</h1>
@@ -15,7 +16,7 @@
         <input type="text" id="firstname" placeholder="Firstname">
         <label for="email"></label>
         <input type="text" id="email" placeholder="Email">
-        <button onclick="setCookies()">Log in</button>
+        <button onclick="login()">Log in</button>
         <br><br>
 
     </div>
@@ -24,35 +25,6 @@
     <div id="Welcome: eggmin (logout)"></div>
 
     <script>
-
-        function setCookies() {
-            const firstname = document.getElementById('firstname').Value;
-            const email = document.getElementById('email').Value;
-
-            // Calculating the expiration date in 10 days time.
-
-            const expiration = new Date(Date.now() + 10 * 24 * 60 * 60 *1000);
-
-            // Setting the specific path with the 10 days expiration.
-
-            document.cookie = `firstname=${firstname}; expires=${expiration.toUTCString()}; path=/`;
-            document.cookie = `email=${email}; expires=${expiration.toUTCString()}; path=/`;
-
-            alert('Successful');
-
-        }
-
-        function getCookie(name) {
-            let cookies = document.cookie.split(';');
-            for (let cookie of cookies) {
-                let [cookieName, cookieValue] = cookie.trim().split('=');
-                if (cookieName === name) {
-                    return cookieValue;
-                }
-            }
-            return ' ';
-
-        }
 
         function showForm() {
             const welcomeMessage = document.getElementById('welcomeMessage');
@@ -71,14 +43,28 @@
         
         // Function to delete cookies and show form
         function deleteCookiesAndShowForm() {
-            document.cookie = 'firstname=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
-            document.cookie = 'email=; expires=Thu 01 Jan 1970 00:00:00 UTC; path=/;';
+            Cookies.remove('firstname');
+            Cookies.remove('email');
             showForm();
         }
 
+        // Function showing cookies and show the welcome message
+        function setCookiesAndShowWelcomeMessage() {
+            const firstname = document.getElementById('loginFirstname').value;
+            const email = document.getElementById('loginEmail').value;
+
+            // Setting cookies with 10 days expiration and specific path
+
+            Cookies.set('firstname', firstname, { expires: 10, path: '/' });
+            Cookies.set('email', email, {expires: 10, path: '/' });
+
+            showWelcomeMessageOrForm();
+        }
+
+
         // Function showing Welcome Message or Form
         function showWelcomeMessageOrForm() {
-            const firstname = getCookie('firstname');
+            const firstname = Cookies.get('firstname');
             const welcomeMessage = document.getElementById('welcomeMessage');
             const loginForm = document.getElementById('loginForm');
 
@@ -97,7 +83,6 @@
                 }
             }
         }
-        showWelcomeMessageOrForm();
     </script>
 </body>
 </html>
